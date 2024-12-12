@@ -26,18 +26,18 @@
         //CARGA DEL DRIVER Y PREPARACIÓN DE LA CONEXIÓN CON LA BBDD
         //						v---------UTILIZAMOS LA VERSIÓN MODERNA DE LLAMADA AL DRIVER, no deprecado
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/baloncesto", "root", "user");
+        Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/baloncesto", "root", "4535");
 
         Connection conn = null;
         PreparedStatement ps = null;
-     	ResultSet rs = null;
+        ResultSet rs = null;
 
         try {
 
             //CARGA DEL DRIVER Y PREPARACIÓN DE LA CONEXIÓN CON LA BBDD
             //						v---------UTILIZAMOS LA VERSIÓN MODERNA DE LLAMADA AL DRIVER, no deprecado
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/baloncesto", "root", "user");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/baloncesto", "root", "secret");
 
 
 //>>>>>>NO UTILIZAR STATEMENT EN QUERIES PARAMETRIZADAS
@@ -71,35 +71,40 @@
 
                 //System.out.println();
 
-                %>
+%>
 
-    <table>
-        <tr>
-            <td>
-                SocioID
-            </td>
-            <td>
-                <%= numSocio%>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Nombre
-            </td>
-            <td>
-                <%= nombre%>
-            </td>
-        </tr>
-    </table>
-
+<table>
+    <tr>
+        <td>
+            SocioID
+        </td>
+        <td>
+            <%= numSocio%>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Nombre
+        </td>
+        <td>
+            <%= nombre%>
+        </td>
+    </tr>
+</table>
+<br>
+<a href="index.jsp">Volver al Home</a>
+<%
+%>
 
 <%
 
-            } else {
+} else {
 
-                %>
-                    <span>No existe socio con id <%=socioID %></span>
-                <%
+%>
+<span>No existe socio con id <%=socioID %></span>
+<br>
+<a href="index.jsp">Volver al Home</a>
+<%
             }
 
 
@@ -120,7 +125,7 @@
 
     } else {
         //NO HAY VALIDACIÓN
-                out.println("Error de validación!");
+        out.println("Error de validación!");
     }
 
 %>
